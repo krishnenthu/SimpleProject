@@ -28,7 +28,7 @@ public class LoginTest extends Base {
         login=new LoginPage(driver);
 
         String actTitle=login.getLoginPageTitle();
-        Assert.assertNotEquals(actTitle,expTitle, AssertErrorMessage.TITLE_MISMATCH_MESSAGE);
+        Assert.assertEquals(actTitle,expTitle, AssertErrorMessage.TITLE_MISMATCH_MESSAGE);
     }
     @Test(groups = "Sanity")
     public void TC02_verifyLoginWithValidCredentials() throws IOException {
