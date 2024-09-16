@@ -49,7 +49,7 @@ public class Base {
     }*/
 
     // Parameterized for cross browser testing
-   @BeforeMethod
+   @BeforeMethod(alwaysRun = true)
     @Parameters({"browser"})
     public void setUp(String browser) {
          String browserName=browser;
@@ -60,18 +60,18 @@ public class Base {
         driver.get(url);
     }
 
-    @AfterMethod
+    public  String getScreenShot(String TestCaseName, WebDriver driver) throws IOException {
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+        File screenshotFile = screenshot.getScreenshotAs(OutputType.FILE);
+        String path=System.getProperty("user.dir")+"//Screenshot//"+TestCaseName+".png";
+        FileUtils.copyFile(screenshotFile, new File(path));
+        return path;
+
+    }
+
+    @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) throws IOException {
 
-
-        if (result.getStatus() == ITestResult.FAILURE) {
-            TakesScreenshot screenshot = (TakesScreenshot) driver;
-            File screenshotFile = screenshot.getScreenshotAs(OutputType.FILE);
-           // filePath=new String(System.getProperty("user.dir")+"./Screenshots" + result.getName() + ".png");
-            FileUtils.copyFile(screenshotFile, new File("./Screenshots" + result.getName() + ".png"));
-           // FileUtils.copyFile(screenshotFile, new File(filePath));
-
-        }
         driver.close();
 
     }

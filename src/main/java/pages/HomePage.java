@@ -24,7 +24,6 @@ public class HomePage extends TestHelperUtility {
     public String getLoggedInUsername(){
        String username=  pageUtility.getTextValue(loggedInUsername);
        return username;
-
     }
 
 }

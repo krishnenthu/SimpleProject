@@ -8,8 +8,12 @@ import java.io.IOException;
 
 public class DataProviderMethod {
     @DataProvider(name="InvalidCredentials")
-    public Object[][] getInValidCredentials() throws IOException {
-        Object[][] data= ExcelUtility.getExcelDataOfDataProvider(ExcelSheetName.INVALID_DATA_PROVIDER_SHEET);
+    public Object[][] getInValidCredentials(){
+        Object[][] data=ExcelUtility.getExcelDataOfDataProvider(ExcelSheetName.INVALID_DATA_PROVIDER_SHEET);
         return data;
     }
+
+
 }
+
+

@@ -2,10 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="listeners.ExtentManager"></listener>
+        <listener class-name="listeners.TestListener"/>
     </listeners>
     <test  name="Functional Test">
-        <parameter name="browser" value="edge"></parameter>
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="testScript.LoginTest">
                 <methods>
